@@ -1,0 +1,12 @@
+{
+  "bindings": [
+    {
+      "type": "blobTrigger",
+      "name": "myBlob",
+      "path": "<your container name>/<your appinsights name and subscription id>/Messages/{date}/{time}/{name}",
+      "connection": "storage connection name",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
