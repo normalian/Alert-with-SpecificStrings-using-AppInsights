@@ -36,7 +36,6 @@ const string ALERT_STRING = "string for alert. e.g. WEB01-E001";
 
 ```
 
-
 Create "Azure Function" instance and open "Function app settings". Setup "Deploy - Configure continuous integration" and choose your repository project forked with this sample like below.
 ![Continuous Deployment](https://raw.githubusercontent.com/normalian/Alert-with-SpecificStrings-using-AppInsights/master/img/ContinuousDeployment.png "Continuous Deployment")
 
@@ -44,3 +43,19 @@ Finally, setup storage account via your Azure Function page like below.
 ![Storage Account Setup](https://raw.githubusercontent.com/normalian/Alert-with-SpecificStrings-using-AppInsights/master/img/SetupStrageAccount.png "Storage Account Setup")
 
 Now, you can recieve alert from SendGrid.
+
+
+## Reference
+- https://libraries.io/nuget/Sendgrid
+- https://docs.microsoft.com/ja-jp/azure/azure-functions/functions-bindings-storage-blob
+
+
+## Copyright
+<table>
+  <tr>
+    <td>Copyright</td><td>Copyright (c) 2016- Daichi Isami</td>
+  </tr>
+  <tr>
+    <td>License</td><td>MIT License</td>
+  </tr>
+</table>
