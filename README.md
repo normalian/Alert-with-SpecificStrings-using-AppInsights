@@ -46,13 +46,13 @@ Now, you can recieve alert from SendGrid.
 
 ## Reference
 - https://libraries.io/nuget/Sendgrid
-- https://docs.microsoft.com/ja-jp/azure/azure-functions/functions-bindings-storage-blob
-
+- https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob
+- https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry
 
 ## Copyright
 <table>
   <tr>
-    <td>Copyright</td><td>Copyright (c) 2016- Daichi Isami</td>
+    <td>Copyright</td><td>Copyright (c) 2017- Daichi Isami</td>
   </tr>
   <tr>
     <td>License</td><td>MIT License</td>
