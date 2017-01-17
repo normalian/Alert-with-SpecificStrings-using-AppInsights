@@ -1,6 +1,5 @@
 # Alert-with-SpecificStrings-using-AppInsights
-You probably confuse how to alert with some logs when you use Azure PaaS Service( e.x. App Service, Cloud Service) especially OSS components. This sample enable you to alert with specific strings using Application Insights. 
-A feature of Application Insights called "Continuous export" can export its log data into Azure Blob Storage. 
+You probably confuse how to alert with specific strings when you use Azure PaaS Service( e.x. App Service, Cloud Service) especially OSS components. This sample enable you to alert with them using Application Insights, Azure Function and SendGrid. You can alert with this sample even if you use OSS components on Azure PaaS. 
 
 ## Requirement
 - SendGrid account
