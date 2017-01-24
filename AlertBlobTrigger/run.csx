@@ -1,8 +1,8 @@
 using Microsoft.Azure.Search;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +11,10 @@ using System.Net;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
-const string SENDGRID_APIKEY = "[SENDGRID APIKEY]";
-const string FROM_MAIL_ADDRESS = "FROM MAIL ADDRESS. e.g. daisami@microsoft.com";
-const string TO_MAIL_ADDRESS = "TO MAIL ADDRESS. e.g. daisami@microsoft.com";
-const string ALERT_STRING = "string for alert. e.g. WEB01-E001";
+static readonly string SENDGRID_APIKEY = Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
+static readonly string FROM_MAIL_ADDRESS = Environment.GetEnvironmentVariable("FROM_MAIL_ADDRESS");
+static readonly string TO_MAIL_ADDRESS = Environment.GetEnvironmentVariable("TO_MAIL_ADDRESS");
+static readonly List<string> ALERT_STRINGS = Environment.GetEnvironmentVariable("ALERT_STRINGS").Split(new char[] { ';' }).ToList();
 
 public static void Run(TextReader myBlob, string name, TraceWriter log)
 {
@@ -28,13 +28,13 @@ public static void Run(TextReader myBlob, string name, TraceWriter log)
         var messageModel = JsonConvert.DeserializeObject<AIMessageModel>(line);
         foreach (var message in messageModel.message)
         {
-            log.Info(message.raw);        
-            if(message.raw.Contains(ALERT_STRING))
+            log.Info(message.raw);
+            if (ALERT_STRINGS.Any(_ => message.raw.Contains(_))) 
             {
-                log.Info("This is alert message.");
+                log.Info("This is error message.");
 
                 Email mailFrom = new Email(FROM_MAIL_ADDRESS);
-                string subject = "This is alert message from Application Insights!";
+                string subject = "This is error message from Application Insights!";
                 Email to = new Email(TO_MAIL_ADDRESS);
                 Content content = new Content("text/plain", message.raw);
                 Mail mail = new Mail(mailFrom, subject, to, content);

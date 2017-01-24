@@ -22,20 +22,13 @@ to like below.
 - "path": "logs/diagnosticwebapp_8a0933360f7c4585a965efc81905e5fe/Messages/{date}/{time}/{name}",
 ```
 
-And then, edit variables in AlertBlobTrigger/run.csx.
+Create "Azure Function" instance and open "Function app settings". Edit Environment variables in Azure Portal like below.
+![Application Setting](https://raw.githubusercontent.com/normalian/Alert-with-SpecificStrings-using-AppInsights/master/img/ApplicationSetting.png "ApplicationSetting.png")
 
-```csharp:run.csx
-using SendGrid;
-using SendGrid.Helpers.Mail;
+Setup SENDGRID_APIKEY, FROM_MAIL_ADDRESS, TO_MAIL_ADDRESS and ALERT_STRINGS. You can setup multi strings in ALERT_STRINGS variables such as "WEB01-E001;WEB01-E002".
 
-const string SENDGRID_APIKEY = "[SENDGRID APIKEY]";
-const string FROM_MAIL_ADDRESS = "FROM MAIL ADDRESS. e.g. daisami@microsoft.com";
-const string TO_MAIL_ADDRESS = "TO MAIL ADDRESS. e.g. daisami@microsoft.com";
-const string ALERT_STRING = "string for alert. e.g. WEB01-E001";
 
-```
-
-Create "Azure Function" instance and open "Function app settings". Setup "Deploy - Configure continuous integration" and choose your repository project forked with this sample like below.
+And then, setup "Deploy - Configure continuous integration" and choose your repository project forked with this sample like below.
 ![Continuous Deployment](https://raw.githubusercontent.com/normalian/Alert-with-SpecificStrings-using-AppInsights/master/img/ContinuousDeployment.png "Continuous Deployment")
 
 Finally, setup storage account via your Azure Function page like below.
